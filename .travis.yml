@@ -16,4 +16,4 @@ before_install:
   - docker pull ubuntu:latest
 
 script:
-  - docker run --cap-add=SYS_PTRACE -v "$PWD":/travis ubuntu ls /travis
+  - docker run --cap-add=SYS_PTRACE -v "$PWD":/travis quiltdata/win64 'conda install --yes pyarrow -c conda-forge & cd travis & pip install . & pytest'
