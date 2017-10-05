@@ -12,8 +12,13 @@ import yaml
 from tqdm import tqdm
 
 from .store import PackageStore, VALID_NAME_RE, StoreException
+<<<<<<< Updated upstream
 from .const import DEFAULT_BUILDFILE, PACKAGE_DIR_NAME, PARSERS, RESERVED
 from .core import PackageFormat, BuildException, exec_yaml_python
+=======
+from .const import DEFAULT_BUILDFILE, PACKAGE_DIR_NAME, QUILT_BUILD_DEST, RESERVED, TARGET
+from .core import PackageFormat
+>>>>>>> Stashed changes
 from .util import FileWithReadProgress
 
 from . import check_functions as qc            # pylint:disable=W0611
@@ -175,7 +180,7 @@ def _file_to_data_frame(ext, path, target, user_kwargs):
 
 def build_package(username, package, yaml_path, checks_path=None, dry_run=False, env='default'):
     """
-    Builds a package from a given Yaml file and installs it locally.
+    Builds a package from a given Yaml file and installs it in QUILT_BUILD_DEST.
 
     Returns the name of the package.
     """
@@ -238,7 +243,8 @@ def build_package_from_contents(username, package, build_dir, build_data,
     checks_contents = {} if checks_contents is None else checks_contents
     checks_contents.update(build_data.get('checks', {}))
 
-    store = PackageStore()
+    # By default built packages go into user home
+    store = PackageStore(os.path.join(QUILT_BUILD_DEST, PACKAGE_DIR_NAME))
     newpackage = store.create_package(username, package, dry_run=dry_run)
     _build_node(build_dir, newpackage, '', contents, pkgformat,
                 checks_contents=checks_contents, dry_run=dry_run, env=env)
