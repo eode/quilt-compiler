@@ -12,13 +12,8 @@ import yaml
 from tqdm import tqdm
 
 from .store import PackageStore, VALID_NAME_RE, StoreException
-<<<<<<< Updated upstream
-from .const import DEFAULT_BUILDFILE, PACKAGE_DIR_NAME, PARSERS, RESERVED
+from .const import DEFAULT_BUILDFILE, PACKAGE_DIR_NAME, PARSERS, QUILT_BUILD_DEST, RESERVED
 from .core import PackageFormat, BuildException, exec_yaml_python
-=======
-from .const import DEFAULT_BUILDFILE, PACKAGE_DIR_NAME, QUILT_BUILD_DEST, RESERVED, TARGET
-from .core import PackageFormat
->>>>>>> Stashed changes
 from .util import FileWithReadProgress
 
 from . import check_functions as qc            # pylint:disable=W0611
