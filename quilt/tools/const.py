@@ -19,7 +19,6 @@ LATEST_TAG = 'latest'
 
 DEFAULT_BUILDFILE = 'build.yml'
 PACKAGE_DIR_NAME = 'quilt_packages'
-QUILT_BUILD_DEST = os.environ.get('QUILT_BUILD_DEST', os.path.expanduser('~'))
 
 # reserved words in build.yml
 RESERVED = {

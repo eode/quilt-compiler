@@ -12,7 +12,7 @@ import yaml
 from tqdm import tqdm
 
 from .store import PackageStore, VALID_NAME_RE, StoreException
-from .const import DEFAULT_BUILDFILE, PACKAGE_DIR_NAME, PARSERS, QUILT_BUILD_DEST, RESERVED
+from .const import DEFAULT_BUILDFILE, PACKAGE_DIR_NAME, PARSERS, RESERVED
 from .core import PackageFormat, BuildException, exec_yaml_python
 from .util import FileWithReadProgress
 
@@ -175,7 +175,7 @@ def _file_to_data_frame(ext, path, target, user_kwargs):
 
 def build_package(username, package, yaml_path, checks_path=None, dry_run=False, env='default'):
     """
-    Builds a package from a given Yaml file and installs it in QUILT_BUILD_DEST.
+    Builds a package from a given Yaml file and installs it in yaml_path.
 
     Returns the name of the package.
     """

@@ -23,6 +23,7 @@ class BuildTest(QuiltTestCase):
         Package.reset_parquet_lib()
         mydir = os.path.dirname(__file__)
         path = os.path.join(mydir, './build.yml')
+        print('***', PACKAGE, path)
         build.build_package('test_parquet', PACKAGE, path)
         # TODO load DFs based on contents of .yml file at PATH
         # not hardcoded vals (this will require loading modules from variable

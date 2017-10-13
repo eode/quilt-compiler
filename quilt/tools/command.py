@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Command line parsing and command dispatch
+Command dispatch
 """
 
 from __future__ import print_function
